@@ -46,7 +46,7 @@ const routes = [
     'redirect': '/cookies/firefox-default'
   },
   {
-    'path': '/cookies/:storeId?',
+    'path': '/cookies/:storeId',
     'name': 'cookie-list',
     'component': Cookies
   }
