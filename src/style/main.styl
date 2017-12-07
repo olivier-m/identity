@@ -1,0 +1,277 @@
+// Configuration
+//
+color_base    ?= #2a2a2e
+color_base_bg ?= #fff
+
+color_gray         ?= #b1b1b3
+color_gray_dark    ?= #737373
+color_gray_darker  ?= #4a4a4f
+color_gray_light   ?= #d7d7db
+color_gray_lighter ?= #ededf0
+
+color_link       ?= #0a84ff
+color_link_hover ?= #0060df
+
+color_green ?= #12bc00
+color_orange ?= #ff9400
+
+// Fonts and vertical distribution
+base_font_size  ?= 14px
+line_height     ?= 1.5
+
+font_stack_common    ?= sans-serif
+font_stack_monospace ?= monospace
+
+// Headings
+heading_conf := {
+    h1: {
+        font-size: 3.4rem,
+        font-weight: bold,
+        _margin: 2 0 1 0
+    },
+    h2: {
+        font-size: 2.4rem,
+        font-weight: bold,
+        _margin: 2 0 1 0
+    },
+    h3: {
+        font-size: 2.2rem,
+        _margin: 1 0 1 0
+    },
+    h4: {
+        font-size: 1.8rem,
+        _margin: 1 0 0 0
+    }
+    h5: {
+        font-size: 1.6rem,
+        _margin: 1 0 0 0
+    },
+    h6: {
+        font-size: 1.4rem,
+        _margin: 1 0 0 0
+    }
+}
+
+// Helpers
+//
+@require "./base"
+@require "./text"
+
+
+// Main styles
+//
+h2
+    font-weight normal
+    color color_gray_darker
+
+h3
+    font-weight normal
+    color color_gray_darker
+
+
+#page
+    //
+
+#nav
+    position sticky
+    top 0
+    z-index 1000
+    background-color color_gray_lighter
+
+    ul
+        display flex
+        flex-direction row
+        justify-content flex-start
+        margin 0
+        padding 0 0 0 remsize(get_line_height()/2)
+        list-style none
+
+        li
+            display block
+            margin 0 remsize(get_line_height()/2) 0 0
+            padding 0
+
+            a
+                display block
+                padding remsize(get_line_height()/4) 0
+                color color_base
+                font-weight bold
+
+            &.active
+                border-bottom 2px solid color_link
+
+
+#main
+    margin 0 remsize(get_line_height()/2)
+    padding remsize(get_line_height()) 0
+
+
+button.delete-btn
+    background transparent
+    color #a4000f
+    border-radius 100px
+    border none
+    padding 0 1rem 0 0.5rem
+    font-weight normal
+
+    svg
+        height 1.6em
+        margin 0 0 -0.5rem 0
+        fill #a4000f
+
+    &.delete-confirm
+        background #a4000f
+        color #fff
+
+        svg
+            fill #fff
+
+.containers-wrapper
+    display grid
+    grid-template-columns remsize(18rem) 1fr
+    grid-gap remsize(get_line_height())
+    min-height 100vh
+
+.container-list
+    border-right 1px solid color_gray_light
+    margin 0 0 0 0
+    padding 0
+    list-style none
+
+    li
+        display block
+        margin 0
+        padding 0
+        font-weight bold
+
+        a
+            display block
+            padding remsize(get_line_height()/2) 0
+
+            &:hover
+                border-right 2px solid #000
+                background-color color_gray_lighter
+
+        &.active
+            a
+                border-right 2px solid #000
+
+        .container-icon
+            background-color color_gray
+            display inline-block
+            height 1.6em
+            width 1.6em
+            border-radius 100%
+            text-align center
+
+            svg
+                fill #fff
+                height 1em
+                line-height 1
+                margin-top 0.4rem
+
+            img
+                height 1em
+                width auto
+                filter invert(100%)
+
+.domain-list
+    h3
+        font-size base_font_size
+        line-height get_line_height()
+        margin 0
+        position static
+
+    svg
+        height 1em
+        width auto
+
+    .list-actions
+        display flex
+        flex-direction row
+        justify-content flex-end
+        margin-bottom remsize(get_line_height())
+
+
+    .domain
+        border-bottom 1px solid color_gray_light
+
+        .domain-info
+            display flex
+            flex-direction row
+            justify-content flex-start
+            align-items baseline
+            padding remsize(get_line_height() /4) 0
+
+            h3
+                flex-grow 1
+                cursor pointer
+
+            .opener
+                height 1.6rem
+                vertical-align text-top
+                fill color_gray
+
+            .cookie-count
+                display inline-block
+                padding 0.2rem 0.4rem
+                line-height 1
+                border-radius 3px
+                background-color color_gray
+                color #fff
+
+        .cookie-details
+            display flex
+            flex-direction row
+            justify-content flex-start
+            padding remsize(get_line_height()/2) 0 remsize(get_line_height()/2) 1em
+            border-bottom 1px solid color_gray_lighter
+
+            &:last-child
+                border none
+
+            strong
+                font-weight normal
+                padding 0.2rem 0.5rem
+                background color_gray_dark
+                color white
+                border-radius 3px
+
+            em
+                display block
+
+            kbd
+                color color_gray_darker
+                font-weight bold
+
+            .cookie-info
+                flex-grow 1
+
+            .icon
+                display inline-block
+                vertical-align top
+                line-height 1
+                padding 0.1rem 0.2rem
+
+                svg
+                    display inline-block
+                    height 1.8rem
+                    width auto
+                    line-height 1
+                    vertical-align top
+                    fill color_green
+
+                &.warning
+                    svg
+                        fill color_orange
+
+        .domain-info,
+        .cookie-details
+            .delete-btn
+                visibility hidden
+
+            &:hover, &:focus
+                background-color color_gray_lighter
+
+                .delete-btn
+                    visibility visible

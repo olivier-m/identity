@@ -1,0 +1,38 @@
+{
+  "manifest_description": {
+    "message": "Firefox cookie manager"
+  },
+  "cookies": {
+    "message": "Cookies"
+  },
+  "remove_all_cookied": {
+    "message": "Remove all cookies"
+  },
+  "click_to_confirm": {
+    "message": "Click again to confirm"
+  },
+  "confirm": {
+    "message": "Confirm"
+  },
+  "cookie_secure_off": {
+    "message": "HTTP and HTTPS"
+  },
+  "cookie_secure_on": {
+    "message": "HTTPS only"
+  },
+  "cookie_hostonly_off": {
+    "message": "Accessible to other websites"
+  },
+  "cookie_httponly_off": {
+    "message": "Accessible to client-side scripts"
+  },
+  "this_path_only": {
+    "message": "On this path only"
+  },
+  "expires_at_date": {
+    "message": "Expires on $1"
+  },
+  "expires_session": {
+    "message": "Expires when browser is closed"
+  }
+}
