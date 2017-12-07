@@ -109,14 +109,16 @@ h3
 button.delete-btn
     background transparent
     color #a4000f
-    border-radius 100px
+    border-radius 1em
     border none
-    padding 0 1rem 0 0.5rem
+    padding 0.2rem 0.7em
     font-weight normal
+    line-height remsize(get_line_height() - 0.4)
 
     svg
-        height 1.6em
-        margin 0 0 -0.5rem 0
+        display inline-block
+        height 1.9rem
+        vertical-align sub
         fill #a4000f
 
     &.delete-confirm
@@ -159,20 +161,24 @@ button.delete-btn
         .container-icon
             background-color color_gray
             display inline-block
-            height 1.6em
-            width 1.6em
+            line-height 2.2rem
+            height 2.2rem
+            width 2.2rem
             border-radius 100%
             text-align center
 
             svg
+                display inline-block
+                height 1.5rem
+                line-height 1.5rem
                 fill #fff
-                height 1em
-                line-height 1
-                margin-top 0.4rem
+                vertical-align sub
 
             img
-                height 1em
+                display inline-block
+                height 1.5rem
                 width auto
+                vertical-align sub
                 filter invert(100%)
 
 .domain-list
@@ -209,14 +215,14 @@ button.delete-btn
 
             .opener
                 height 1.6rem
-                vertical-align text-top
+                vertical-align sub
                 fill color_gray
 
             .cookie-count
                 display inline-block
-                padding 0.2rem 0.4rem
-                line-height 1
-                border-radius 3px
+                padding 0 0.7em
+                line-height remsize(get_line_height() - 0.4)
+                border-radius 1em
                 background-color color_gray
                 color #fff
 
@@ -249,16 +255,17 @@ button.delete-btn
 
             .icon
                 display inline-block
-                vertical-align top
-                line-height 1
-                padding 0.1rem 0.2rem
+                vertical-align baseline
+                line-height 1.6rem
+                height 2rem
+                margin-left 0.3rem
 
                 svg
                     display inline-block
                     height 1.8rem
                     width auto
-                    line-height 1
-                    vertical-align top
+                    line-height 2rem
+                    vertical-align middle
                     fill color_green
 
                 &.warning
