@@ -33,6 +33,7 @@ export default {
   watch: {
     storeId(to, from) {
       if (to != from) {
+        this.cookies = [];
         this.fetchCookies();
       }
     }

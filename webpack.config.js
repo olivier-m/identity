@@ -45,15 +45,9 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          use: ['css-loader']
-        })
-      },
-      {
         test: /\.styl$/,
         use: ExtractTextPlugin.extract({
-          use: ['css-loader', 'stylus-loader']
+          use: ['css-loader', 'stylus-loader?paths=node_modules']
         })
       },
       {

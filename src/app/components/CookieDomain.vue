@@ -3,7 +3,7 @@
     <div class="domain-info">
       <h3 @click.prevent="show_cookies = !show_cookies">
          <icon class="opener" :name="show_cookies ? 'minus-square' : 'plus-square'"></icon>
-         <strong>{{ domain }}</strong> <span class="cookie-count">{{ cookies.length }}</span>
+         <strong>{{ domain }}</strong> <span class="pill">{{ cookies.length }}</span>
        </h3>
       <div class="domain-actions">
         <delete-btn label="" :action="removeAll"></delete-btn>
