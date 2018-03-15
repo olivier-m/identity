@@ -1,6 +1,11 @@
 <template>
   <div class="domain-list">
     <div class="list-actions" v-if="Object.keys(cookies).length > 0">
+      <div class="list-action-toggle">
+        <button @click.prevent="toogleExpand">
+          {{ collapsed ? _('expand_all') : _('collapse_all') }}
+        </button>
+      </div>
       <div class="list-action-remove">
         <delete-btn :label="_('remove_all_cookied')" :label-confirm="_('click_to_confirm')"
        :action="removeAll" />
@@ -27,12 +32,18 @@ export default {
     storeId: {
       type: String,
       required: true
+    },
+    collapsed: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
 
   watch: {
     storeId(to, from) {
       if (to != from) {
+        this.collapsed = true;
         this.cookies = [];
         this.fetchCookies();
       }
@@ -40,8 +51,8 @@ export default {
   },
 
   mounted() {
-    this.fetchCookies();
     browser.cookies.onChanged.addListener(this.onMozCookieChanged);
+    this.fetchCookies();
   },
 
   beforeDestroy() {
@@ -58,9 +69,7 @@ export default {
 
   methods: {
     fetchCookies: async function() {
-      let cookies = (await browser.cookies.getAll({
-        storeId: this.storeId
-      })).map(cookie => {
+      let cookies = (await this.getAllCookies(this.storeId)).map(cookie => {
         this._addDomain(cookie);
         return cookie;
       });
@@ -121,6 +130,13 @@ export default {
 
       if (dom.length == 0) {
         this.cookies.splice(idx, 1);
+      }
+    },
+
+    toogleExpand: function() {
+      this.collapsed = !this.collapsed;
+      for (let domain of this.$refs.domains) {
+        domain.show_cookies = !this.collapsed;
       }
     },
 

@@ -14,6 +14,7 @@ $color_link_hover ?= #0060df
 
 $color_green ?= #12bc00
 $color_orange ?= #ff9400
+$color_magenta ?= #b5007f
 
 // Fonts and vertical distribution
 $base_font_size  ?= 14px
@@ -72,14 +73,24 @@ h3
     padding remsize(get_line_height()) 0
 
 
-button.delete-btn
-    background transparent
-    color #a4000f
+button
+    background $color_link
+    color $color_base_bg
     border-radius 1em
     border none
     padding 0.2rem 0.7em
     font-weight normal
     line-height remsize(get_line_height() - 0.4)
+
+    &:focus
+    &:hover
+        background-color $color_link_hover
+        color $color_base_bg
+
+
+button.delete-btn
+    background transparent
+    color #a4000f
 
     svg
         display inline-block
@@ -160,9 +171,16 @@ button.delete-btn
     .list-actions
         display flex
         flex-direction row
-        justify-content flex-end
+        justify-content space-between
         margin-bottom remsize(get_line_height())
 
+        .list-action-toggle button
+            background transparent
+            color $color_link
+
+            &:focus, &:hover
+                background $color_link
+                color $color_base_bg
 
     .domain
         border-bottom 1px solid $color_gray_light
@@ -193,19 +211,12 @@ button.delete-btn
             &:last-child
                 border none
 
-            strong
+            .cookie-name
                 font-weight normal
                 padding 0.2rem 0.5rem
                 background $color_gray_dark
                 color white
                 border-radius 3px
-
-            em
-                display block
-
-            kbd
-                color $color_gray_darker
-                font-weight bold
 
             .cookie-info
                 flex-grow 1
@@ -229,11 +240,17 @@ button.delete-btn
                     svg
                         fill $color_orange
 
-            .cookie-path
-                margin-left 1rem
-                border 0
-                background none
-                color $color_gray_dark
+            .cookie-expires
+                font-style italic
+
+            .cookie-limits
+                display block
+
+                span
+                    display block
+
+                strong
+                    color: $color_magenta
 
         .domain-info,
         .cookie-details

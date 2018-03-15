@@ -25,7 +25,9 @@ Vue.component('icon', Icon);
 // Mixins
 //
 import Localized from './mixins/Localized';
+import Tooling from './mixins/Tooling';
 Vue.mixin(Localized);
+Vue.mixin(Tooling);
 
 //
 // Router

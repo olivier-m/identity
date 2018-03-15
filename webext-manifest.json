@@ -18,6 +18,7 @@
     "<all_urls>",
     "contextualIdentities",
     "cookies",
+    "privacy",
     "tabs"
   ],
   "default_locale": "en",

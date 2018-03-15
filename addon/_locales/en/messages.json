@@ -5,6 +5,12 @@
   "cookies": {
     "message": "Cookies"
   },
+  "expand_all": {
+    "message": "Expand all"
+  },
+  "collapse_all": {
+    "message": "Collapse all"
+  },
   "remove_all_cookied": {
     "message": "Remove all cookies"
   },
@@ -27,7 +33,10 @@
     "message": "Accessible to client-side scripts"
   },
   "this_path_only": {
-    "message": "On this path only"
+    "message": "For path <$2>$1</$2> only"
+  },
+  "this_domain_only": {
+    "message": "For domain <$2>$1</$2> only"
   },
   "expires_at_date": {
     "message": "Expires on $1"
