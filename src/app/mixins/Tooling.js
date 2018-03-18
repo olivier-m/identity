@@ -8,7 +8,7 @@ export default {
         storeId: storeId
       };
 
-      if (b.version > 58) {
+      if (b.majorVersion > 58) {
         params['firstPartyDomain'] = null;
       }
 
