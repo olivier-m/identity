@@ -1,6 +1,6 @@
 {
   "name": "identity-ext",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "",
   "license": "MIT",
   "private": true,
@@ -23,7 +23,7 @@
     "vue-svg-loader": "^0.4.0",
     "vue-template-compiler": "^2.5.9",
     "vuejs": "^2.0.6",
-    "web-ext": "^2.5.0",
+    "web-ext": "^2.8.0",
     "webpack": "^3.8.1"
   },
   "dependencies": {}
