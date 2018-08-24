@@ -30,7 +30,7 @@ export default {
       };
 
       let b = await browserInfo();
-      if (b.version > 58 && b.firstPartyIsolate) {
+      if (b.majorVersion > 58 && b.firstPartyIsolate) {
         params['firstPartyDomain'] = instance.firstPartyDomain;
       }
 
